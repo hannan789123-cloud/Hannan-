@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Hannan | Official Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#facc15',
+                            500: '#eab308',
+                            600: '#ca8a04',
+                            glow: '#ffd700',
+                        },
+                        cyan: {
+                            glow: '#00f2fe',
+                            accent: '#06b6d4',
+                        },
+                        dark: {
+                            900: '#090a0f',
+                            800: '#11131e',
+                            700: '#1a1d2d',
+                            600: '#262a40',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        urdu: ['Noto Nastaliq Urdu', 'serif'],
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 25px rgba(250, 204, 21, 0.25)',
+                        'cyan-glow': '0 0 25px rgba(6, 182, 212, 0.25)',
+                        'card-glow': '0 10px 30px -10px rgba(0, 242, 254, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #090a0f;
+            color: #f3f4f6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090a0f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1a1d2d;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: rgba(17, 19, 30, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-6px);
+            border-color: rgba(6, 182, 212, 0.4);
+            box-shadow: 0 15px 35px -10px rgba(6, 182, 212, 0.2);
+        }
+
+        /* Ambient Glow Backgrounds */
+        .glow-bg-gold {
+            background: radial-gradient(circle, rgba(234, 179, 8, 0.15) 0%, rgba(9, 10, 15, 0) 70%);
+        }
+        .glow-bg-cyan {
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.18) 0%, rgba(9, 10, 15, 0) 70%);
+        }
+
+        /* Text Gradient Effect */
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #fff 0%, #facc15 50%, #ca8a04 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-cyan {
+            background: linear-gradient(135deg, #ffffff 0%, #38bdf8 50%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Urdu Calligraphy styling fine-tuning */
+        .urdu-text {
+            font-family: 'Noto Nastaliq Urdu', serif;
+            line-height: 2.2;
+            direction: rtl;
+        }
+
+        /* Pulsing Glow Animation */
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.08); }
+        }
+        .animate-pulse-glow {
+            animation: pulseGlow 6s infinite ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-cyan-500 selection:text-black">
+
+    <!-- Ambient Background Light Orbs -->
+    <div class="fixed top-0 -left-20 w-96 h-96 glow-bg-cyan animate-pulse-glow pointer-events-none z-0"></div>
+    <div class="fixed top-1/3 -right-20 w-96 h-96 glow-bg-gold animate-pulse-glow pointer-events-none z-0" style="animation-delay: 3s;"></div>
+    <div class="fixed bottom-10 left-1/3 w-96 h-96 glow-bg-cyan animate-pulse-glow pointer-events-none z-0" style="animation-delay: 1.5s;"></div>
+
+    <!-- MAIN CONTAINER -->
+    <div class="relative z-10 min-h-screen flex flex-col justify-between">
+
+        <!-- HEADER / NAVIGATION -->
+        <header class="sticky top-0 z-50 glass-card border-b border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+                <!-- Brand Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-gold-400 p-[1px] transition-transform duration-300 group-hover:rotate-12">
+                        <div class="w-full h-full bg-dark-900 rounded-[11px] flex items-center justify-center font-bold text-lg text-white">
+                            AH
+                        </div>
+                    </div>
+                    <span class="font-bold text-xl tracking-wider text-white group-hover:text-cyan-accent transition-colors">
+                        HANNAN<span class="text-gold-400">.</span>
+                    </span>
+                </a>
+
+                <!-- Nav Links (Desktop) -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#about" class="text-gray-300 hover:text-cyan-accent transition-colors">About</a>
+                    <a href="#quote" class="text-gray-300 hover:text-gold-400 transition-colors">Philosophical Quote</a>
+                    <a href="#media" class="text-gray-300 hover:text-cyan-accent transition-colors">Media Showcase</a>
+                    <a href="#socials" class="text-gray-300 hover:text-gold-400 transition-colors">Connect</a>
+                    <a href="#ai-assistant" class="px-4 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-accent hover:bg-cyan-500 hover:text-black transition-all font-semibold flex items-center gap-2 shadow-cyan-glow">
+                        <i class="fa-solid fa-robot"></i> Hannan AI
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white p-2">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Nav Dropdown -->
+            <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-white/10 px-4 pt-4 pb-6 space-y-3">
+                <a href="#about" class="block text-gray-300 hover:text-cyan-accent py-2">About</a>
+                <a href="#quote" class="block text-gray-300 hover:text-gold-400 py-2">Urdu Quote</a>
+                <a href="#media" class="block text-gray-300 hover:text-cyan-accent py-2">Media Showcase</a>
+                <a href="#socials" class="block text-gray-300 hover:text-gold-400 py-2">Connect</a>
+                <a href="#ai-assistant" class="block text-center py-2 rounded-xl bg-cyan-500/20 text-cyan-accent font-semibold border border-cyan-500/40">
+                    <i class="fa-solid fa-robot mr-2"></i> Hannan AI Assistant
+                </a>
+            </div>
+        </header>
+
+        <!-- HERO SECTION -->
+        <section class="relative pt-12 pb-20 md:pt-20 md:pb-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Profile Card & Location -->
+                <div class="lg:col-span-5 flex flex-col items-center">
+                    <div class="relative group">
+                        <!-- Glow behind image -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-gold-400 rounded-3xl blur-xl opacity-60 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                        
+                        <!-- Main Avatar Container -->
+                        <div class="relative w-64 h-80 sm:w-72 sm:h-96 rounded-2xl overflow-hidden glass-card p-2 border border-white/20">
+                            <div class="w-full h-full rounded-xl overflow-hidden bg-dark-800 relative">
+                                <!-- Featured Profile Photo -->
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" 
+                                     alt="Abdul Hannan" 
+                                     id="profile-img"
+                                     class="w-full h-full object-cover object-center filter saturate-[1.15] contrast-[1.05] transition-transform duration-700 group-hover:scale-105"
+                                     onerror="this.src='https://placehold.co/600x800/11131e/06b6d4?text=Abdul+Hannan'"
+                                />
+                                <div class="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-80"></div>
+                                
+                                <div class="absolute bottom-4 left-4 right-4 text-center">
+                                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-dark-900/80 backdrop-blur-md text-gold-400 border border-gold-500/30">
+                                        <i class="fa-solid fa-certificate"></i> Creator & Personality
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Location Tag -->
+                    <div class="mt-6 flex items-center gap-2 px-5 py-2.5 rounded-full glass-card border border-cyan-500/30 text-cyan-accent text-sm font-semibold shadow-cyan-glow">
+                        <i class="fa-solid fa-location-dot text-gold-400 text-lg"></i>
+                        <span>Shakargarh, Punjab, Pakistan</span>
+                    </div>
+                </div>
+
+                <!-- Right Column: Intro, Calligraphy & Quote -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="space-y-3">
+                        <div class="inline-block px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs font-semibold tracking-widest text-gold-400 uppercase">
+                            Official Profile Portfolio
+                        </div>
+                        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight">
+                            Hi, I'm <span class="text-gradient-cyan">Abdul Hannan</span>
+                        </h1>
+                        <p class="text-gray-400 text-lg max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
+                            A passionate digital creator from <strong class="text-white">Shakargarh</strong>. Sharing unique perspectives, thought-provoking quotes, and authentic visual storytelling.
+                        </p>
+                    </div>
+
+                    <!-- Urdu Calligraphic Quote Card Section -->
+                    <div id="quote" class="glass-card p-6 sm:p-8 rounded-3xl border border-gold-500/30 shadow-gold-glow relative overflow-hidden group">
+                        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-gold-500/10 rounded-full blur-2xl group-hover:bg-gold-500/20 transition-all"></div>
+                        
+                        <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
+                            <span class="text-xs font-semibold uppercase tracking-widest text-gold-400 flex items-center gap-2">
+                                <i class="fa-solid fa-quote-left text-cyan-accent"></i> Featured Motto
+                            </span>
+                            <span class="text-xs text-gray-400">Urdu Aesthetic</span>
+                        </div>
+
+                        <!-- Stylized Urdu Quote -->
+                        <div class="py-4 text-center">
+                            <p class="urdu-text text-3xl sm:text-4xl md:text-5xl font-bold text-gold-400 drop-shadow-[0_4px_12px_rgba(250,204,21,0.3)] leading-loose">
+                                "کافر طبیعت کے مومن لوگ"
+                            </p>
+                            <p class="mt-4 text-xs sm:text-sm text-gray-400 italic font-serif tracking-wider">
+                                — "Faithful souls with an untamed nature"
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="https://wa.me/923216633602" target="_blank" rel="noopener font-semibold" 
+                           class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold hover:brightness-110 transition shadow-lg shadow-emerald-500/20 flex items-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-xl"></i> Chat on WhatsApp
+                        </a>
+                        <a href="https://www.tiktok.com/@h.a.n.n.a.n00" target="_blank" rel="noopener"
+                           class="px-6 py-3.5 rounded-2xl glass-card border border-white/15 text-white font-semibold hover:border-cyan-500 hover:text-cyan-accent transition flex items-center gap-3">
+                            <i class="fa-brands fa-tiktok text-xl"></i> TikTok Handle
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="py-16 bg-dark-800/40 border-y border-white/5 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                        About <span class="text-gradient-gold">Abdul Hannan</span>
+                    </h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-cyan-500 to-gold-400 mx-auto mt-3 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="glass-card glass-card-hover p-8 rounded-3xl space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-accent text-2xl">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Roots in Shakargarh</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Deeply rooted in Shakargarh, bringing authentic cultural expressions, local narratives, and genuine experiences into creative digital media.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="glass-card glass-card-hover p-8 rounded-3xl space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 text-2xl">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Poetic Philosophy</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Resonating with deep Urdu couplets and modern reflections—embodied in his signature theme: <span class="text-gold-400 font-urdu">"کافر طبیعت کے مومن لوگ"</span>.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="glass-card glass-card-hover p-8 rounded-3xl space-y-4">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-2xl">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Digital Connection</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Building a vibrant community across TikTok and personal networks with engaging video status updates, thought pieces, and friendly engagement.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEDIA & TIKTOK VIDEO SHOWCASE SECTION -->
+        <section id="media" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-cyan-accent text-xs font-bold uppercase tracking-widest">Video Showcase</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Featured TikTok & Reels</h2>
+                <p class="text-gray-400 text-sm mt-2">Explore the latest status videos and content shared by Abdul Hannan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Video Player Container -->
+                <div class="lg:col-span-7 flex justify-center">
+                    <div class="glass-card p-4 sm:p-6 rounded-3xl border border-white/10 w-full max-w-md shadow-2xl relative">
+                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/10">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-cyan-500/20 text-cyan-accent flex items-center justify-center text-xs font-bold">
+                                    AH
+                                </div>
+                                <span class="text-sm font-semibold text-white">@h.a.n.n.a.n00</span>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-red-500/20 text-red-400 text-xs font-medium flex items-center gap-1">
+                                <i class="fa-solid fa-circle text-[8px] animate-ping"></i> Video Spotlight
+                            </span>
+                        </div>
+
+                        <!-- Video Player Frame -->
+                        <div class="relative aspect-[9/16] w-full rounded-2xl overflow-hidden bg-black border border-white/10 group shadow-inner">
+                            <video id="hannan-video" controls class="w-full h-full object-cover">
+                                <source src="https://assets.mixkit.co/videos/preview/mixkit-dramatic-portrait-of-a-man-in-a-dark-room-41381-large.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+
+                        <div class="mt-4 flex items-center justify-between text-xs text-gray-400 px-1">
+                            <span class="flex items-center gap-1"><i class="fa-solid fa-heart text-red-500"></i> Featured Clip</span>
+                            <a href="https://www.tiktok.com/@h.a.n.n.a.n00" target="_blank" class="text-cyan-accent hover:underline flex items-center gap-1">
+                                Watch on TikTok <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Media Details & Stats -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-card p-6 rounded-3xl border border-white/10 space-y-4">
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="fa-brands fa-tiktok text-cyan-accent"></i> TikTok Presence
+                        </h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Watch short video poetry, background scores, and reflective aesthetic clips on TikTok. Follow for regular new uploads directly from Shakargarh.
+                        </p>
+                        <div class="pt-2">
+                            <a href="https://www.tiktok.com/@h.a.n.n.a.n00" target="_blank" rel="noopener"
+                               class="inline-flex items-center gap-3 px-6 py-3 rounded-xl bg-cyan-500 text-black font-bold hover:bg-cyan-400 transition shadow-cyan-glow">
+                                <i class="fa-solid fa-user-plus"></i> Follow @h.a.n.n.a.n00
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-3xl border border-white/10 space-y-3">
+                        <h4 class="text-sm font-bold text-gold-400 uppercase tracking-wider">Motto Highlights</h4>
+                        <div class="bg-dark-900/60 p-4 rounded-xl border border-gold-500/20">
+                            <p class="urdu-text text-xl text-center text-gold-400">"کافر طبیعت کے مومن لوگ"</p>
+                        </div>
+                        <p class="text-xs text-gray-400">Featured heavily in profile headers, video overlays, and personal descriptions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL & CONTACT SECTION -->
+        <section id="socials" class="py-16 bg-dark-800/50 border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <h2 class="text-3xl font-bold text-white">Get in Touch with Hannan</h2>
+                    <p class="text-gray-400 text-sm mt-2">Reach out directly via WhatsApp or connect on social platforms.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <!-- WhatsApp Card -->
+                    <a href="https://wa.me/923216633602" target="_blank" rel="noopener" 
+                       class="glass-card glass-card-hover p-6 rounded-2xl flex items-center gap-4 group border border-emerald-500/20">
+                        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-emerald-400 font-semibold uppercase tracking-wider">Direct WhatsApp</div>
+                            <div class="text-lg font-bold text-white mt-0.5">0321 6633602</div>
+                            <div class="text-xs text-gray-400">Click to send a message</div>
+                        </div>
+                    </a>
+
+                    <!-- TikTok Card -->
+                    <a href="https://www.tiktok.com/@h.a.n.n.a.n00" target="_blank" rel="noopener"
+                       class="glass-card glass-card-hover p-6 rounded-2xl flex items-center gap-4 group border border-cyan-500/20">
+                        <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 text-cyan-accent flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                            <i class="fa-brands fa-tiktok"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-cyan-accent font-semibold uppercase tracking-wider">TikTok Profile</div>
+                            <div class="text-lg font-bold text-white mt-0.5">@h.a.n.n.a.n00</div>
+                            <div class="text-xs text-gray-400">View latest videos</div>
+                        </div>
+                    </a>
+
+                    <!-- Location Card -->
+                    <div class="glass-card p-6 rounded-2xl flex items-center gap-4 border border-gold-500/20 sm:col-span-2 lg:col-span-1">
+                        <div class="w-14 h-14 rounded-2xl bg-gold-500/10 text-gold-400 flex items-center justify-center text-2xl">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gold-400 font-semibold uppercase tracking-wider">Location</div>
+                            <div class="text-lg font-bold text-white mt-0.5">Shakargarh</div>
+                            <div class="text-xs text-gray-400">Punjab, Pakistan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI CHATBOT SECTION -->
+        <section id="ai-assistant" class="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-accent border border-cyan-500/30 text-xs font-bold uppercase tracking-wider">
+                    Interactive AI
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3">Hannan AI Assistant</h2>
+                <p class="text-gray-400 text-sm mt-2">
+                    Ask anything about Abdul Hannan, his roots in Shakargarh, quote philosophy, or media content.
+                </p>
+            </div>
+
+            <!-- Chatbot Card Container -->
+            <div class="glass-card rounded-3xl border border-white/10 overflow-hidden shadow-2xl flex flex-col h-[600px]">
+                
+                <!-- Chat Header & Key Configuration -->
+                <div class="p-4 sm:p-6 bg-dark-900/90 border-b border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="relative">
+                            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-gold-400 flex items-center justify-center text-black font-bold text-xl">
+                                <i class="fa-solid fa-robot"></i>
+                            </div>
+                            <span class="absolute -bottom-0.5 -right-0.5 w-3.5 h-3.5 bg-emerald-500 border-2 border-dark-900 rounded-full"></span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-white text-base">Hannan AI Assistant</h3>
+                            <p class="text-xs text-cyan-accent flex items-center gap-1">
+                                Powered by Gemini 3 Flash Preview
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- API Key Settings -->
+                    <div class="w-full sm:w-auto flex items-center gap-2">
+                        <div class="relative flex-1 sm:w-64">
+                            <input type="password" id="gemini-api-key" placeholder="Enter Gemini API Key (Optional)..." 
+                                   class="w-full bg-dark-800 border border-white/15 rounded-xl px-3 py-1.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-cyan-accent pr-8 transition">
+                            <button id="toggle-key-visibility" class="absolute right-2.5 top-2 text-gray-400 hover:text-white text-xs">
+                                <i class="fa-solid fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="text-[10px] text-gray-500 hidden sm:inline" title="Pre-configured default available if left blank">
+                            <i class="fa-solid fa-circle-info"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Chat History / Messages Display -->
+                <div id="chat-messages" class="flex-1 p-4 sm:p-6 overflow-y-auto space-y-4 bg-dark-900/30">
+                    <!-- AI Welcome Message -->
+                    <div class="flex gap-3 max-w-[85%] sm:max-w-[75%]">
+                        <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-accent flex-shrink-0 flex items-center justify-center text-xs font-bold">
+                            AI
+                        </div>
+                        <div class="glass-card p-4 rounded-2xl rounded-tl-none border border-cyan-500/20 text-sm text-gray-200 leading-relaxed">
+                            Assalamu Alaikum! I am the official AI assistant for <strong class="text-white">Abdul Hannan</strong> from <strong class="text-gold-400">Shakargarh</strong>. 
+                            <br><br>
+                            How can I help you today? You can ask me about his poetic quote <span class="text-gold-400 font-urdu">"کافر طبیعت کے مومن لوگ"</span>, contact info, or TikTok content!
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat Input Controls -->
+                <div class="p-4 bg-dark-900/80 border-t border-white/10">
+                    <form id="chat-form" class="flex items-center gap-2">
+                        <input type="text" id="chat-input" placeholder="Type your message about Hannan..." 
+                               class="flex-1 bg-dark-800 border border-white/15 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-cyan-accent transition">
+                        <button type="submit" id="chat-send-btn" 
+                                class="px-5 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 text-black font-bold text-sm hover:brightness-110 transition flex items-center gap-2 shadow-cyan-glow">
+                            <span>Send</span>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="py-8 border-t border-white/10 glass-card">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:flex sm:items-center sm:justify-between text-xs text-gray-400">
+                <p>&copy; 2026 Abdul Hannan (Shakargarh). All rights reserved.</p>
+                <div class="mt-4 sm:mt-0 font-urdu text-gold-400 text-sm">
+                    کافر طبیعت کے مومن لوگ
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        // System prompt configuration for Gemini API about Abdul Hannan from Shakargarh
+        const SYSTEM_INSTRUCTION = `You are "Hannan AI Assistant", an official AI assistant embedded on Abdul Hannan's personal portfolio website.
+Here is the factual background knowledge about Abdul Hannan:
+- Name: Abdul Hannan
+- Home City: Shakargarh, Punjab, Pakistan
+- Signature Poetic Motto/Quote: "کافر طبیعت کے مومن لوگ" (Urdu aesthetic quote meaning faithful souls with an untamed/rebellious nature).
+- WhatsApp Contact: 0321 6633602 (International: +923216633602)
+- TikTok Profile: @h.a.n.n.a.n00 (URL: https://www.tiktok.com/@h.a.n.n.a.n00)
+- Role: Content creator, video status editor, and thoughtful personality from Shakargarh.
+
+Your tone should be polite, respectful, stylish, and helpful. Respond in warm, concise English or Urdu depending on what language the user speaks.
+Always emphasize his roots in Shakargarh and his distinct quote "کافر طبیعت کے مومن لوگ" when appropriate.`;
+
+        // Interactive UI Listeners
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Mobile Navigation Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileNav = document.getElementById('mobile-menu');
+            
+            if (mobileBtn && mobileNav) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileNav.classList.toggle('hidden');
+                });
+            }
+
+            // Toggle Password Visibility for API Key
+            const toggleKeyBtn = document.getElementById('toggle-key-visibility');
+            const apiKeyInput = document.getElementById('gemini-api-key');
+            if (toggleKeyBtn && apiKeyInput) {
+                toggleKeyBtn.addEventListener('click', () => {
+                    const type = apiKeyInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    apiKeyInput.setAttribute('type', type);
+                    toggleKeyBtn.innerHTML = type === 'password' ? '<i class="fa-solid fa-eye"></i>' : '<i class="fa-solid fa-eye-slash"></i>';
+                });
+            }
+
+            // Chat Functionality
+            const chatForm = document.getElementById('chat-form');
+            const chatInput = document.getElementById('chat-input');
+            const chatMessages = document.getElementById('chat-messages');
+            const sendBtn = document.getElementById('chat-send-btn');
+
+            let conversationHistory = [];
+
+            // Add Message Element to UI
+            function appendMessage(role, text) {
+                const isUser = role === 'user';
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `flex gap-3 ${isUser ? 'justify-end' : 'justify-start'} max-w-[85%] sm:max-w-[75%] ${isUser ? 'ml-auto' : ''}`;
+
+                if (isUser) {
+                    messageDiv.innerHTML = `
+                        <div class="bg-gradient-to-r from-cyan-600 to-teal-600 text-white p-4 rounded-2xl rounded-tr-none text-sm leading-relaxed shadow-lg">
+                            ${escapeHtml(text)}
+                        </div>
+                        <div class="w-8 h-8 rounded-lg bg-gold-500/20 text-gold-400 flex-shrink-0 flex items-center justify-center text-xs font-bold">
+                            You
+                        </div>
+                    `;
+                } else {
+                    messageDiv.innerHTML = `
+                        <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-accent flex-shrink-0 flex items-center justify-center text-xs font-bold">
+                            AI
+                        </div>
+                        <div class="glass-card p-4 rounded-2xl rounded-tl-none border border-cyan-500/20 text-sm text-gray-200 leading-relaxed">
+                            ${formatMarkdown(text)}
+                        </div>
+                    `;
+                }
+
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            // Show Typing Indicator
+            function createTypingIndicator() {
+                const indicatorDiv = document.createElement('div');
+                indicatorDiv.id = 'typing-indicator';
+                indicatorDiv.className = 'flex gap-3 max-w-[85%] sm:max-w-[75%]';
+                indicatorDiv.innerHTML = `
+                    <div class="w-8 h-8 rounded-lg bg-cyan-500/20 text-cyan-accent flex-shrink-0 flex items-center justify-center text-xs font-bold">
+                        AI
+                    </div>
+                    <div class="glass-card px-4 py-3 rounded-2xl rounded-tl-none border border-cyan-500/20 flex items-center gap-1.5">
+                        <span class="w-2 h-2 bg-cyan-accent rounded-full animate-bounce"></span>
+                        <span class="w-2 h-2 bg-cyan-accent rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
+                        <span class="w-2 h-2 bg-cyan-accent rounded-full animate-bounce" style="animation-delay: 0.4s"></span>
+                    </div>
+                `;
+                chatMessages.appendChild(indicatorDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function removeTypingIndicator() {
+                const indicator = document.getElementById('typing-indicator');
+                if (indicator) indicator.remove();
+            }
+
+            // Handle Chat Submission
+            chatForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const userQuery = chatInput.value.trim();
+                if (!userQuery) return;
+
+                // Append user message
+                appendMessage('user', userQuery);
+                chatInput.value = '';
+
+                // Add to internal history
+                conversationHistory.push({
+                    role: 'user',
+                    parts: [{ text: userQuery }]
+                });
+
+                createTypingIndicator();
+                sendBtn.disabled = true;
+
+                try {
+                    // Fetch API key if user provided one, otherwise use default runner
+                    const customKey = apiKeyInput.value.trim();
+                    const apiKey = customKey || ""; 
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+                    const payload = {
+                        contents: conversationHistory,
+                        systemInstruction: {
+                            parts: [{ text: SYSTEM_INSTRUCTION }]
+                        }
+                    };
+
+                    const response = await fetchWithRetry(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+                    removeTypingIndicator();
+
+                    const aiText = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    if (aiText) {
+                        appendMessage('model', aiText);
+                        conversationHistory.push({
+                            role: 'model',
+                            parts: [{ text: aiText }]
+                        });
+                    } else {
+                        appendMessage('model', "I apologize, I couldn't generate a response. Please check your API key settings or connection.");
+                    }
+
+                } catch (err) {
+                    console.error("Gemini API Error:", err);
+                    removeTypingIndicator();
+                    appendMessage('model', "Sorry, I encountered an issue while connecting to Gemini API. Please ensure your API key is valid or try again later.");
+                } finally {
+                    sendBtn.disabled = false;
+                }
+            });
+
+            // Exponential Backoff Fetch Helper
+            async function fetchWithRetry(url, options, retries = 3, delay = 1000) {
+                try {
+                    const res = await fetch(url, options);
+                    if (!res.ok && res.status === 429 && retries > 0) {
+                        await new Promise(r => setTimeout(r, delay));
+                        return fetchWithRetry(url, options, retries - 1, delay * 2);
+                    }
+                    return res;
+                } catch (err) {
+                    if (retries > 0) {
+                        await new Promise(r => setTimeout(r, delay));
+                        return fetchWithRetry(url, options, retries - 1, delay * 2);
+                    }
+                    throw err;
+                }
+            }
+
+            // HTML Escaping Helper
+            function escapeHtml(str) {
+                return str.replace(/&/g, "&amp;")
+                          .replace(/</g, "&lt;")
+                          .replace(/>/g, "&gt;")
+                          .replace(/"/g, "&quot;")
+                          .replace(/'/g, "&#039;");
+            }
+
+            // Lightweight Markdown Format
+            function formatMarkdown(str) {
+                let formatted = escapeHtml(str);
+                // Bold
+                formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white">$1</strong>');
+                // Italics
+                formatted = formatted.replace(/\*(.*?)\*/g, '<em class="text-gold-400">$1</em>');
+                // Linebreaks
+                formatted = formatted.replace(/\n/g, '<br>');
+                return formatted;
+            }
+        });
+    </script>
+</body>
+</html>
